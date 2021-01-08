@@ -146,7 +146,7 @@ def test_simple(args):
             uncert_resized_np = uncert_resized.squeeze().cpu().numpy()
             uncert_vmax = np.percentile(uncert_resized_np, 95)
             uncert_normalizer = mpl.colors.Normalize(vmin=uncert_resized_np.min(), vmax=uncert_vmax)
-            uncert_mapper = cm.ScalarMappable(norm=uncert_normalizer, cmap='magma')
+            uncert_mapper = cm.ScalarMappable(norm=uncert_normalizer, cmap='hot')
             uncert_colormapped_im = (uncert_mapper.to_rgba(uncert_resized_np)[:, :, :3] * 255).astype(np.uint8)
             uncert_im = pil.fromarray(uncert_colormapped_im)
 
